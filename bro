@@ -87,7 +87,7 @@ _set_bot () {
     echo "
 
     "
-    python3 -m jmub
+    python3 -m zthon
 }
 
 _set_bot
