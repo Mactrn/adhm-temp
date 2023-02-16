@@ -4,7 +4,7 @@
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "ADHM_JMTHON" ]]
+    if [[ $UPSTREAM_REPO == "zi1" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL3RoZWptdGhvbi9qbXViL2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -24,7 +24,7 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "ADHM_JMTHON" ]]
+    if [[ $UPSTREAM_REPO == "zthon" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3RoZWptdGhvbi9qbXViLmdpdA" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
@@ -44,7 +44,7 @@ _run_python_code() {
 _run_catpack_git() {
     $(_run_python_code 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/Mactrn/ADHM_JMTHON"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/Mactrn/SOURCE-ALAPATH"
 ACTIVE_BRANCH_NAME = "master"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
@@ -68,7 +68,7 @@ repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 
 _set_bot () {
     local zippath
-    zippath="JASEM1.zip"
+    zippath="ALAPATH.zip"
     echo "جاري تنزيل اكواد السورس "
     wget -q $(_get_ziplink) -O "$zippath"
     echo " تفريغ البيانات "
